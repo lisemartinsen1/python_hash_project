@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navbar</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .custom-bg {
+            background-color: #ccc4be; /* Your custom background color */
+        }
+
+        .security-img {
+            width: 50px;
+        }
+
+        .btn-login {
+            width: 50px;
+        }
+
+        .btn-logout {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light custom-bg">
+    <a class="navbar-brand" href="{{ url_for('index') }}">
+        <img src="https://www.svgrepo.com/show/445993/security-verified.svg" class="img-fluid security-img" alt="security badge icon">
+        IT Security
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('hashing') }}">Hashing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('cracking') }}">Password Cracker</a>
+            </li>
+            {% if not current_user.is_authenticated %}
+            <li class="nav-item">
+                <a class="btn btn-login btn-primary p-1 text-white nav-link" href="{{ url_for('login') }}">Login</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <form action="{{ url_for('logout') }}" method="post" class="form-inline">
+                    <button type="submit" class="btn btn-danger p-1 nav-link text-white btn-logout">Logout</button>
+                </form>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+</body>
+</html>

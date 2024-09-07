@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        background-color: #fccfef;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .login-div {
+        background-color: white;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        width: 400px;
+    }
+
+    .btn-custom {
+        background-color: #435380;
+        color: white;
+        border: none;
+    }
+    .btn-custom:hover {
+        background-color: #647dbb;
+        color: white
+    }
+
+    .github-img {
+        width: 200px;
+    }
+
+</style>
+<body>
+
+<div class="login-div">
+    <img src="https://www.svgrepo.com/show/509967/github.svg" class="img-fluid github-img" alt="github icon">
+    <a href="{{ url_for('github.login') }}" class="btn btn-custom">Login with GitHub</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
